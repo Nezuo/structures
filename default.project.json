@@ -8,6 +8,7 @@
         },
 
         "TestService": {
+            "TestEZ": {"$path": "dependencies/testez/src"},
             "runTests": {"$path": "test/runTests.server.lua"}
         }
     }

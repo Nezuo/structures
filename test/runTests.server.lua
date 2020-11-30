@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TestService = game:GetService("TestService")
 
-local TestEz = require(TestService.TestEz)
+local TestEZ = require(TestService.TestEZ)
 
-TestEz.TestBootstrap:run({
+TestEZ.TestBootstrap:run({
     ReplicatedStorage.Structures;
 })
