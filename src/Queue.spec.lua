@@ -63,12 +63,18 @@ return function()
         expect(queue:dequeue()).never.to.be.ok()
     end)
 
-    it("should return first value", function()
+    it("should return first value or nil", function()
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")
 
         expect(queue:peek()).to.equal("a")
+
+        expect(queue:dequeue()).to.equal("a")
+        expect(queue:dequeue()).to.equal("b")
+        expect(queue:dequeue()).to.equal("c")
+
+        expect(queue:peek()).never.to.be.ok()
     end)
 
     it("should iterate through elements", function()
