@@ -4,7 +4,15 @@ return function()
     local set
 
     beforeEach(function()
-        set = Set.new()
+        set = Set()
+    end)
+    
+    it("should have default values", function()
+        local mySet = Set {"a", "b", "c"}
+
+        expect(mySet:has("a")).to.equal(true)
+        expect(mySet:has("b")).to.equal(true)
+        expect(mySet:has("c")).to.equal(true)
     end)
 
     it("should give correct size", function()
@@ -35,5 +43,65 @@ return function()
         set:add("a")
         
         expect(set.size).to.equal(1)
+    end)
+
+    it("should add value if not present", function()
+        expect(set:add("a")).to.equal(true)
+        expect(set:add("a")).to.equal(false)
+    end)
+
+    it("should remove value if present", function()
+        expect(set:remove("a")).to.equal(false)
+
+        set:add("a")
+
+        expect(set:remove("a")).to.equal(true)
+    end)
+
+    it("should not add nil", function()
+        expect(set:add(nil)).to.equal(false)
+        expect(set:has(nil)).to.equal(false)
+    end)
+
+    it("should have added values", function()
+        expect(set:has("a")).to.equal(false)
+
+        set:add("a")
+
+        expect(set:has("a")).to.equal(true)
+
+        set:remove("a")
+
+        expect(set:has("a")).to.equal(false)
+
+        set:add("a")
+
+        expect(set:has("a")).to.equal(true)
+
+        set:clear()
+
+        expect(set:has("a")).to.equal(false)
+    end)
+
+    it("should iterate through values", function()
+        set:add("a")
+        set:add("b")
+        set:add("c")
+
+        local function iteratedValues(iterator, values)
+            for value in iterator(set) do
+                local index = table.find(values, value)
+    
+                if index then
+                    table.remove(values, index)
+                else
+                    return false
+                end
+            end
+    
+            return #values == 0
+        end
+
+        expect(iteratedValues(set.values, {"a", "b", "c"})).to.equal(true)
     end)
 end

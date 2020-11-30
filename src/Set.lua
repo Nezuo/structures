@@ -41,10 +41,14 @@ function Set:values()
 end
 
 function Set:add(value)
-    if not self:has(value) then
+    if value ~= nil and not self:has(value) then
         self._values[value] = true
         self.size += 1
+
+        return true
     end
+
+    return false
 end
 
 function Set:remove(value)
