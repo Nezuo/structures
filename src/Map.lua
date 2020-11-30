@@ -24,7 +24,7 @@ function Map:__tostring()
         local open = useQuotes and "[\"" or "["
         local close = useQuotes and "\"] = " or "] = "
 
-        table.insert(entries, open .. tostring(key) .. close .. tostring(value) )
+        table.insert(entries, open .. tostring(key) .. close .. tostring(value))
     end
 
     return "Map {" .. table.concat(entries, ", ") .. "}"
