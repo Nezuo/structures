@@ -88,20 +88,20 @@ return function()
         set:add("b")
         set:add("c")
 
-        local function iteratedValues(iterator, values)
-            for value in iterator(set) do
+        local function iteratedValues(values)
+            for value in set:values() do
                 local index = table.find(values, value)
-    
-                if index then
+
+                if index ~= nil then
                     table.remove(values, index)
                 else
                     return false
                 end
             end
-    
+
             return #values == 0
         end
 
-        expect(iteratedValues(set.values, {"a", "b", "c"})).to.equal(true)
+        expect(iteratedValues({"a", "b", "c"})).to.equal(true)
     end)
 end

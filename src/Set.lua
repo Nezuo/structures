@@ -1,7 +1,6 @@
 local Set = {}
 Set.__index = Set
 
--- TODO: Unit test, unit test, unit test
 -- TODO: Add typings!!!
 -- TODO: Finding type of structure
 

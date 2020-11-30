@@ -63,10 +63,15 @@ function Map:get(key)
 end
 
 function Map:set(key, value)
+    if key == nil then
+        error("Map key cannot be nil.")
+    end
+
     if not self:has(key) then
-        self._entries[key] = value
         self.size += 1
     end
+
+    self._entries[key] = value
 end
 
 function Map:remove(key)
