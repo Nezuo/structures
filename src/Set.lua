@@ -22,7 +22,13 @@ local function createSet(values)
 end
 
 function Set:values()
-    return next, self._values
+    local function iterate(state, control)
+        local value = next(state, control)
+
+        return value
+    end
+
+    return iterate, self._values
 end
 
 function Set:add(value)
@@ -30,11 +36,6 @@ function Set:add(value)
         self._values[value] = true
         self.size += 1
     end
-end
-
-function Set:clear()
-    self._values = {}
-    self.size = 0
 end
 
 function Set:remove(value)
@@ -51,6 +52,11 @@ end
 
 function Set:has(value)
     return self._values[value] == true
+end
+
+function Set:clear()
+    self._values = {}
+    self.size = 0
 end
 
 return createSet
