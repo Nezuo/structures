@@ -1,7 +1,6 @@
 local Set = {}
 Set.__index = Set
 
--- TODO: Add typings!!!
 -- TODO: Finding type of structure
 
 local function createSet(values)
