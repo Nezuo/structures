@@ -19,7 +19,7 @@ local function createSet(values)
 end
 
 function Set:__tostring()
-    local values = {}
+    local values = table.create(self.size)
     for value in self:values() do
         table.insert(values, value)
     end

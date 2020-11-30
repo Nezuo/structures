@@ -19,7 +19,7 @@ function createMap(entries)
 end
 
 function Map:__tostring()
-    local entries = {}
+    local entries = table.create(self.size)
     for key, value in self:entries() do
         local useQuotes = type(key) ~= "number"
         local open = useQuotes and "[\"" or "["
