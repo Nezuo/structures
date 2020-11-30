@@ -17,6 +17,19 @@ function createMap(entries)
     return self
 end
 
+function Map:__tostring()
+    local entries = {}
+    for key, value in self:entries() do
+        local useQuotes = type(key) ~= "number"
+        local open = useQuotes and "[\"" or "["
+        local close = useQuotes and "\"] = " or "] = "
+
+        table.insert(entries, open .. tostring(key) .. close .. tostring(value) )
+    end
+
+    return "Map {" .. table.concat(entries, ", ") .. "}"
+end
+
 function Map:entries()
     return next, self._entries
 end

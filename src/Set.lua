@@ -1,9 +1,9 @@
 local Set = {}
 Set.__index = Set
 
--- TODO: tostring?
 -- TODO: Unit test, unit test, unit test
 -- TODO: Add typings!!!
+-- TODO: Finding type of structure
 
 local function createSet(values)
     local self = setmetatable({}, Set)
@@ -19,6 +19,15 @@ local function createSet(values)
     end
 
     return self
+end
+
+function Set:__tostring()
+    local values = {}
+    for value in self:values() do
+        table.insert(values, value)
+    end
+
+    return "Set {" .. table.concat(values, ", ") .. "}"
 end
 
 function Set:values()
