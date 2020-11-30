@@ -44,6 +44,11 @@ return function()
 
         expect(queue.size).to.equal(0)
         expect(queue:isEmpty()).to.equal(true)
+
+        queue:dequeue()
+
+        expect(queue.size).to.equal(0)
+        expect(queue:isEmpty()).to.equal(true)
     end)
 
     it("should not add nil", function()
@@ -82,20 +87,20 @@ return function()
         queue:enqueue("b")
         queue:enqueue("c")
 
-        local function iteratedElements(values)
-            for value in queue:elements() do
-                local index = table.find(values, value)
+        local function iteratedElementsInOrder(elements)
+            local index = 0
 
-                if index ~= nil then
-                    table.remove(values, index)
-                else
+            for value in queue:elements() do
+                index += 1
+
+                if elements[index] ~= value then
                     return false
                 end
             end
 
-            return #values == 0
+            return index == #elements
         end
 
-        expect(iteratedElements({"a", "b", "c"})).to.equal(true)
+        expect(iteratedElementsInOrder({"a", "b", "c"})).to.equal(true)
     end)
 end
