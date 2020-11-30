@@ -1,7 +1,6 @@
 local Set = {}
 Set.__index = Set
-
--- TODO: Finding type of structure
+Set.__type = "Set"
 
 local function createSet(values)
     local self = setmetatable({}, Set)

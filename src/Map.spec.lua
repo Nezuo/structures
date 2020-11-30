@@ -1,10 +1,15 @@
 return function()
     local Map = require(script.Parent.Map)
+    local typeOf = require(script.parent.typeOf)
 
     local map
 
     beforeEach(function()
         map = Map()
+    end)
+
+    it("should be correct type", function()
+        expect(typeOf(map)).to.equal("Map")
     end)
 
     it("should have default values", function()

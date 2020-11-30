@@ -1,5 +1,6 @@
 local Map = {}
 Map.__index = Map
+Map.__type = "Map"
 
 function createMap(entries)
     local self = setmetatable({}, Map)

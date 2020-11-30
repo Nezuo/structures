@@ -1,5 +1,6 @@
 return function()
     local Set = require(script.Parent.Set)
+    local typeOf = require(script.parent.typeOf)
 
     local set
 
@@ -7,6 +8,10 @@ return function()
         set = Set()
     end)
     
+    it("should be correct type", function()
+        expect(typeOf(set)).to.equal("Set")
+    end)
+
     it("should have default values", function()
         local mySet = Set {"a", "b", "c"}
 
