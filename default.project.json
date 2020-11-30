@@ -5,6 +5,10 @@
 
         "ReplicatedStorage": {
             "Structures": {"$path": "src"}
+        },
+
+        "TestService": {
+            "runTests": {"$path": "test/runTests.server.lua"}
         }
     }
 }
