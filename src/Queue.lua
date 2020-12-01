@@ -1,3 +1,5 @@
+local LinkedList = require(script.Parent.LinkedList)
+
 local Queue = {}
 Queue.__index = Queue
 Queue.__type = "Queue"
@@ -5,44 +7,40 @@ Queue.__type = "Queue"
 local function createQueue()
     local self = setmetatable({}, Queue)
     
+    self._linkedList = LinkedList()
     self.size = 0
-    self._elements = {}
 
     return self
 end
 
 function Queue:__tostring()
-    return "Queue {" .. table.concat(self._elements, ", ") .. "}"
+    local values = table.create(self.size)
+    for value in self._linkedList:values() do
+        table.insert(values, tostring(value))
+    end
+
+    return "Queue {" .. table.concat(values, ", ") .. "}"
 end
 
 function Queue:elements()
-    local control = 0
-
-    local function iterator(state)
-        control += 1
-
-        return state[control]
-    end
-
-    return iterator, self._elements
+    return self._linkedList:values()
 end
 
 function Queue:enqueue(element)
     if element ~= nil then
-        table.insert(self._elements, element)
-
+        self._linkedList:append(element)
         self.size += 1
     end
 end
 
-function Queue:dequeue() -- TODO: If we used a doubly linked list, dequeue could be O(1) instead of O(n)
-    local element = table.remove(self._elements, 1)
+function Queue:dequeue()
+    local removedValue = self._linkedList:removeHead()
 
-    if element ~= nil then
+    if removedValue ~= nil then
         self.size -= 1
-
-        return element
     end
+
+    return removedValue
 end
 
 function Queue:isEmpty()
@@ -50,7 +48,11 @@ function Queue:isEmpty()
 end
 
 function Queue:peek()
-    return self._elements[1]
+    local head = self._linkedList.head
+
+    if head ~= nil then
+        return head.value
+    end
 end
 
 return createQueue
