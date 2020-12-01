@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout master
       - uses: actions/checkout@v2
 
       - name: Deploy documentation
-        run: mhausenblas/mkdocs-deploy-gh-pages@master
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
