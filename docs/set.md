@@ -39,7 +39,7 @@ Returns a boolean asserting whether `value` is present within the `Set` object.
 
 ### [boolean](https://developer.roblox.com/en-us/articles/Boolean) remove([any]() *`value`*)
 
-Removes `value` from the `Set` object. Returns true if `value` exists in the `Set` object and was removed, otherwise it returns false.
+Removes `value` from the `Set` object. Returns true if `value` existed in the `Set` object and was removed, otherwise it returns false.
 
 ---
 
@@ -47,7 +47,7 @@ Removes `value` from the `Set` object. Returns true if `value` exists in the `Se
 
 ### values()
 
-Returns an iterator that contains an array of [*value*] for each value in the `Set` object, in an undefined order.
+Returns an iterator that contains the *value* for each element in the `Set` object, in a undefined order.
 
 ## Examples
 

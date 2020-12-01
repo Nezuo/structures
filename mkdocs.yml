@@ -3,8 +3,9 @@ repo_name: Nezuo/structures
 repo_url: https://github.com/Nezuo/structures
 
 nav:
-  - Home: index.md
+  - What is Structures?: index.md
   - Structures:
+    - Map: map.md
     - Set: set.md
 
 theme:
