@@ -1,0 +1,18 @@
+name: Deploy Documentation
+ 
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build and deploy documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy documentation
+        run: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
