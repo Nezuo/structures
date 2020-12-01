@@ -1,1 +1,9 @@
 site_name: Structures
+
+nav:
+  - Home: index.md
+  - Structures:
+    - Set: set.md
+
+theme:
+  name: material
