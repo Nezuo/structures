@@ -1,4 +1,6 @@
 site_name: Structures
+repo_name: Nezuo/structures
+repo_url: https://github.com/Nezuo/structures
 
 nav:
   - Home: index.md
@@ -7,3 +9,9 @@ nav:
 
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    scheme: slate
+    primary: amber
+    accent: orange
