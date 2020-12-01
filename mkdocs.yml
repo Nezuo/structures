@@ -15,3 +15,9 @@ theme:
     scheme: slate
     primary: amber
     accent: orange
+
+markdown_extensions:
+  - codehilite:
+      linenums: true
+  - toc:
+      permalink: true
