@@ -13,6 +13,8 @@ return function()
     end)
 
     it("should return correct string", function()
+        expect(tostring(linkedList)).to.equal("LinkedList {}")
+
         linkedList:append("a")
         linkedList:append("b")
         linkedList:append("c")

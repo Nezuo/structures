@@ -12,6 +12,16 @@ return function()
         expect(typeOf(map)).to.equal("Map")
     end)
 
+    it("should return correct string", function()
+        expect(tostring(map)).to.equal("Map {}")
+
+        map:set(1, true)
+        map:set("1", false)
+        map:set("\"a\"", "b")
+
+        expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [\"\"a\"\"] = b}")
+    end)
+
     it("should have default values", function()
         local myMap = Map {a = 1, b = 2, c = 3}
 

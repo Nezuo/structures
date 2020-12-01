@@ -5,7 +5,7 @@ return function()
     local linkedListNode
 
     beforeEach(function()
-        linkedListNode = LinkedListNode.new("value")
+        linkedListNode = LinkedListNode.new()
     end)
 
     it("should be correct type", function()
@@ -13,6 +13,10 @@ return function()
     end)
 
     it("should return correct string", function()
+        expect(tostring(linkedListNode)).to.equal("nil")
+
+        linkedListNode.value = "value"
+
         expect(tostring(linkedListNode)).to.equal("value")
     end)
 end

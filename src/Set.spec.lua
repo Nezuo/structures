@@ -12,6 +12,15 @@ return function()
         expect(typeOf(set)).to.equal("Set")
     end)
 
+    it("should return correct string", function()
+        expect(tostring(set)).to.equal("Set {}")
+
+        set:add(true)
+        set:add(false)
+
+        expect(tostring(set)).to.equal("Set {false, true}")
+    end)
+
     it("should have default values", function()
         local mySet = Set {"a", "b", "c"}
 

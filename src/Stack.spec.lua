@@ -13,6 +13,8 @@ return function()
     end)
 
     it("should return correct string", function()
+        expect(tostring(stack)).to.equal("Stack {}")
+
         stack:push("a")
         stack:push("b")
         stack:push("c")

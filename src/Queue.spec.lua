@@ -13,6 +13,8 @@ return function()
     end)
 
     it("should return correct string", function()
+        expect(tostring(queue)).to.equal("Queue {}")
+
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")

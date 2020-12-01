@@ -21,7 +21,7 @@ end
 function Set:__tostring()
     local values = table.create(self.size)
     for value in self:values() do
-        table.insert(values, value)
+        table.insert(values, tostring(value))
     end
 
     return "Set {" .. table.concat(values, ", ") .. "}"
