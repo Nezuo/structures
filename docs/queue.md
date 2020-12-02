@@ -80,8 +80,8 @@ myQueue:enqueue("a")
 myQueue:enqueue("b")
 myQueue:enqueue("c")
 
-for value in myQueue:elements() do
-    print(key, value)
+for element in myQueue:elements() do
+    print(element)
 end
 
 -- a

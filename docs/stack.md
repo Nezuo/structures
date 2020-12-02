@@ -81,8 +81,8 @@ myStack:push("a")
 myStack:push("b")
 myStack:push("c")
 
-for value in myStack:elements() do
-    print(key, value)
+for element in myStack:elements() do
+    print(element)
 end
 
 -- a
