@@ -12,6 +12,8 @@ return function()
         expect(typeOf(queue)).to.equal("Queue")
     end)
 
+    print("workflow test")
+
     it("should return correct string", function()
         expect(tostring(queue)).to.equal("Queue {}")
 
