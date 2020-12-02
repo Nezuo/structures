@@ -1,0 +1,21 @@
+name: CD
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: Roblox/setup-foreman@v1
+        with:
+          version: "^1.0.0"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload model
+        run: rojo upload build.project.json --asset_id 6033045359 --cookie ${{ secrets.ROBLOSECUIRTY }}

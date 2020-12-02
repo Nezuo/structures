@@ -8,5 +8,8 @@
 /*.rbxlx.lock
 /*.rbxl.lock
 
+# Build
+/build.rbxm
+
 # Documentation site
 /site
