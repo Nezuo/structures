@@ -5,12 +5,14 @@ repo_url: https://github.com/Nezuo/structures
 nav:
   - What is Structures?: index.md
   - Structures:
+    - DoublyLinkedList: doublylinkedlist.md
     - LinkedList: linkedlist.md
     - Map: map.md
     - Queue: queue.md
     - Set: set.md
     - Stack: stack.md
   - Classes:
+    - DoublyLinkedListNode: doublylinkedlistnode.md
     - LinkedListNode: linkedlistnode.md
 
 theme:
@@ -25,5 +27,6 @@ theme:
 markdown_extensions:
   - codehilite:
       linenums: true
+  - admonition
   - toc:
       permalink: true
