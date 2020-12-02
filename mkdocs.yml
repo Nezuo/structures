@@ -6,6 +6,7 @@ nav:
   - What is Structures?: index.md
   - Structures:
     - Map: map.md
+    - Queue: queue.md
     - Set: set.md
 
 theme:
