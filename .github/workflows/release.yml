@@ -18,6 +18,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Upload model
-        run: rojo upload build.project.json --asset_id 6033045359 --cookie $ROBLOSECURITY
+        run: rojo upload build.project.json --asset_id 6033045359 --cookie "$ROBLOSECURITY"
         env:
           ROBLOSECURITY: ${{ secrets.ROBLOSECUIRTY }}
