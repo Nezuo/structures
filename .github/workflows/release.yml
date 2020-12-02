@@ -20,4 +20,4 @@ jobs:
       - name: Upload model
         run: rojo upload build.project.json --asset_id 6033045359 --cookie "$ROBLOSECURITY"
         env:
-          ROBLOSECURITY: ${{ secrets.ROBLOSECUIRTY }}
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
