@@ -1,4 +1,5 @@
 local LinkedList = require(script.Parent.LinkedList)
+local toString = require(script.Parent.toString)
 
 local Queue = {}
 Queue.__index = Queue
@@ -16,7 +17,7 @@ end
 function Queue:__tostring()
     local values = table.create(self.size)
     for value in self._linkedList:values() do
-        table.insert(values, tostring(value))
+        table.insert(values, toString(value))
     end
 
     return "Queue {" .. table.concat(values, ", ") .. "}"

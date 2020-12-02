@@ -19,7 +19,7 @@ return function()
         linkedList:append("b")
         linkedList:append("c")
 
-        expect(tostring(linkedList)).to.equal("LinkedList {a, b, c}")
+        expect(tostring(linkedList)).to.equal("LinkedList {\"a\", \"b\", \"c\"}")
     end)
 
     it("should give correct size", function()

@@ -19,7 +19,7 @@ return function()
         queue:enqueue("b")
         queue:enqueue("c")
 
-        expect(tostring(queue)).to.equal("Queue {a, b, c}")
+        expect(tostring(queue)).to.equal("Queue {\"a\", \"b\", \"c\"}")
     end)
 
     it("should give correct size", function()

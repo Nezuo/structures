@@ -1,3 +1,5 @@
+local toString = require(script.Parent.toString)
+
 local Set = {}
 Set.__index = Set
 Set.__type = "Set"
@@ -21,7 +23,7 @@ end
 function Set:__tostring()
     local values = table.create(self.size)
     for value in self:values() do
-        table.insert(values, tostring(value)) -- TODO: Strings should be wrapped in quotes.
+        table.insert(values, toString(value))
     end
 
     return "Set {" .. table.concat(values, ", ") .. "}"

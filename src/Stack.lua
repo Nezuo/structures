@@ -1,3 +1,5 @@
+local toString = require(script.Parent.toString)
+
 local Stack = {}
 Stack.__index = Stack
 Stack.__type = "Stack"
@@ -12,7 +14,12 @@ local function createStack()
 end
 
 function Stack:__tostring()
-    return "Stack {" .. table.concat(self._elements, ", ") .. "}"
+    local elements = table.create(self.size)
+    for element in self:elements() do
+        table.insert(elements, toString(element))
+    end
+
+    return "Stack {" .. table.concat(elements, ", ") .. "}"
 end
 
 function Stack:elements()

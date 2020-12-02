@@ -17,8 +17,9 @@ return function()
 
         set:add(true)
         set:add(false)
+        set:add("a")
 
-        expect(tostring(set)).to.equal("Set {false, true}")
+        expect(tostring(set)).to.equal("Set {false, true, \"a\"}")
     end)
 
     it("should have default values", function()

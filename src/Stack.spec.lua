@@ -19,7 +19,7 @@ return function()
         stack:push("b")
         stack:push("c")
 
-        expect(tostring(stack)).to.equal("Stack {a, b, c}")
+        expect(tostring(stack)).to.equal("Stack {\"a\", \"b\", \"c\"}")
     end)
 
     it("should give correct size", function()

@@ -1,3 +1,5 @@
+local toString = require(script.Parent.toString)
+
 local Map = {}
 Map.__index = Map
 Map.__type = "Map"
@@ -21,11 +23,7 @@ end
 function Map:__tostring()
     local entries = table.create(self.size)
     for key, value in self:entries() do
-        local useQuotes = type(key) ~= "number"
-        local open = useQuotes and "[\"" or "["
-        local close = useQuotes and "\"] = " or "] = "
-
-        table.insert(entries, open .. tostring(key) .. close .. tostring(value))
+        table.insert(entries, "[" .. toString(key) .. "] = " .. toString(value))
     end
 
     return "Map {" .. table.concat(entries, ", ") .. "}"

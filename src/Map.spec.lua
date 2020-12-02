@@ -18,8 +18,9 @@ return function()
         map:set(1, true)
         map:set("1", false)
         map:set("\"a\"", "b")
-
-        expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [\"\"a\"\"] = b}")
+        map:set(true, "c")
+        
+        expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [true] = \"c\", [\"\"a\"\"] = \"b\"}")
     end)
 
     it("should have default values", function()

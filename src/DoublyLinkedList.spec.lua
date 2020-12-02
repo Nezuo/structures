@@ -19,7 +19,7 @@ return function()
         doublyLinkedList:append("b")
         doublyLinkedList:append("c")
 
-        expect(tostring(doublyLinkedList)).to.equal("DoublyLinkedList {a, b, c}")
+        expect(tostring(doublyLinkedList)).to.equal("DoublyLinkedList {\"a\", \"b\", \"c\"}")
     end)
 
     it("should give correct size", function()

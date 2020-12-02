@@ -1,4 +1,5 @@
 local LinkedListNode = require(script.Parent.LinkedListNode)
+local toString = require(script.Parent.toString)
 local typeOf = require(script.Parent.typeOf)
 
 local LinkedList = {}
@@ -20,7 +21,7 @@ function LinkedList:__tostring()
     
     local currentNode = self.head
     while currentNode ~= nil do
-        table.insert(values, tostring(currentNode.value))
+        table.insert(values, toString(currentNode.value))
 
         currentNode = currentNode.next
     end
