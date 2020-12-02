@@ -5,10 +5,13 @@ repo_url: https://github.com/Nezuo/structures
 nav:
   - What is Structures?: index.md
   - Structures:
+    - LinkedList: linkedlist.md
     - Map: map.md
     - Queue: queue.md
     - Set: set.md
     - Stack: stack.md
+  - Classes:
+    - LinkedListNode: linkedlistnode.md
 
 theme:
   name: material
