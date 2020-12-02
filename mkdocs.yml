@@ -8,6 +8,7 @@ nav:
     - Map: map.md
     - Queue: queue.md
     - Set: set.md
+    - Stack: stack.md
 
 theme:
   name: material

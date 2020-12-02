@@ -1,5 +1,4 @@
 # Map
-
 A `Map` stores key-value pairs. Any non-nil value may be used as either a key or value.
 
 ---
@@ -18,7 +17,6 @@ local myMap = Map({["a"] = 1, ["b"] = 2, ["c"] = 3})
 ## Properties
 
 ### [number](https://developer.roblox.com/en-us/articles/Numbers) size
-
 Returns the number of entries in the `Map` object.
 
 ---
@@ -26,23 +24,18 @@ Returns the number of entries in the `Map` object.
 ## Methods
 
 ### [void]() clear()
-
 Removes all entries from the `Map` object.
 
 ### [any]() get([any]() *`key`*)
-
 Returns the value associated to the `key`, or `nil` if there is none.
 
 ### [boolean](https://developer.roblox.com/en-us/articles/Boolean) has([any]() *`key`*)
-
 Returns a boolean asserting whether a value has been associated to the `key` in the `Map` object or not.
 
 ### [boolean](https://developer.roblox.com/en-us/articles/Boolean) remove([any]() *`key`*)
-
 Removes the `key` from the `Map` object. Returns true if `key` existed in the `Map` object and was removed, otherwise it returns false.
 
 ### [void]() set([any]() *`key`*, [any]() *`value`*)
-
 Sets the `value` for the `key` in the `Map` object.
 
 ---
@@ -50,21 +43,16 @@ Sets the `value` for the `key` in the `Map` object.
 ## Iteration methods
 
 ### entries()
-
 Returns an iterator that contains a table of [*key*, *value*] for each entry in the `Map` object, in an undefined order.
 
 ### keys()
-
 Returns an iterator that contains the *key* for each entry in the `Map` object, in a undefined order.
-
 ### values()
-
 Returns an iterator that contains the *value* for each entry in the `Map` object, in a undefined order.
 
 ## Examples
 
 ### Using the Map object
-
 ```lua
 local myMap = Map()
 
@@ -92,7 +80,6 @@ myMap:get("a") -- nil
 ```
 
 ### Iterating the Map object
-
 ```lua
 local myMap = Map({["a"] = 1, ["b"] = 2, ["c"] = 3})
 
@@ -124,11 +111,9 @@ end
 ## Complexities
 
 ### Time Complexity
-
 | **Access** | **Search** | **Insertion** | **Deletion** |
 |------------|------------|---------------|--------------|
 | O(1)       | O(1)       | O(1)          | O(1)         |
 
 ### Space Complexity
-
 O(n)
