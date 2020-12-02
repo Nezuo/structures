@@ -1,4 +1,4 @@
-name: CI
+name: Lint
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: Lint
+    name: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,9 @@ jobs:
       with:
         version: "^1.0.0"
         token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Generate roblox.toml
+      run: selene generate-roblox-std
 
     - name: Run Selene
       run: selene src
