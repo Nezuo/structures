@@ -12,11 +12,38 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: true
+
       - uses: Roblox/setup-foreman@v1
         with:
           version: "^1.0.0"
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
+      - name: Build model file
+        run: rojo build build.project.json --output build.rbxm
+
+      - name: Zip model file
+        run: |
+          zip --junk-paths structures build.rbxm
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./structures.zip
+          asset_name: structures.zip
+          asset_content_type: application/zip
+
       - name: Upload model
         run: rojo upload build.project.json --cookie "$ROBLOSECURITY" --asset_id 6033045359
         env:
