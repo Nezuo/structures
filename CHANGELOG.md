@@ -1,6 +1,8 @@
 # Structures Changelog
 
 ## Unreleased Changes
+
+## [v1.0.0](https://github.com/Nezuo/structures/releases/tag/v1.0.0) (December 2, 2020)
 * Added the DoublyLinkedList data structure.
 * Added the LinkedList data structure.
 * Added the Map data structure.
