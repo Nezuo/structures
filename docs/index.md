@@ -37,4 +37,4 @@ Structures is a collection of data structures implemented in Luau.
  - [LinkedListNode](linkedlistnode.md)
 
 ## License
-Apache License Version 2.0
+MIT License
