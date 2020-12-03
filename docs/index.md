@@ -15,7 +15,7 @@ Structures is a collection of data structures implemented in Luau.
 
 **Rojo workflow:**
 1. [Download Structures](https://github.com/Nezuo/structures/releases/latest/download/structures.zip) from the latest release on GitHub.
-2. Extract the Structures directory from the zipped file.
+2. Extract the zipped file.
 3. Place Structures into your project directory.
 4. Use Rojo to point Structures to ReplicatedStorage.
 
