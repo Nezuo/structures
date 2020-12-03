@@ -25,8 +25,7 @@ jobs:
 
       - name: Build project
         run: |
-          cd src
-          zip --junk-paths -r structures.zip *.lua
+          zip --junk-paths -r structures.zip src
 
       - uses: Roblox/setup-foreman@v1
         with:
