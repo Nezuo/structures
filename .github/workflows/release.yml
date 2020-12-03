@@ -20,7 +20,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          draft: true
+          draft: false
+          prerelease: false
 
       - uses: Roblox/setup-foreman@v1
         with:
