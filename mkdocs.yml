@@ -8,6 +8,7 @@ nav:
     - DoublyLinkedList: doublylinkedlist.md
     - LinkedList: linkedlist.md
     - Map: map.md
+    - OrderedMap: orderedmap.md
     - OrderedSet: orderedset.md
     - Queue: queue.md
     - Set: set.md

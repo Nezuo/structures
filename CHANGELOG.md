@@ -2,6 +2,7 @@
 
 ## Unreleased Changes
 * Added the OrderedSet data structure.
+* Added the OrderedMap data structure.
 
 ## [v1.0.0](https://github.com/Nezuo/structures/releases/tag/v1.0.0) (December 2, 2020)
 * Added the DoublyLinkedList data structure.

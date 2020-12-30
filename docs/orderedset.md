@@ -1,5 +1,5 @@
 # OrderedSet
-An `OrderedSet` stores a collection of values. A value in the `OrderedSet` **may only occur once**; it is unique in the `OrderedSet`'s collection. The `OrderedSet` is different to the [`Set`](set.md) data structure because you can iterate over its elements in insertion order.
+An `OrderedSet` stores a collection of values. A value in the `OrderedSet` **may only occur once**; it is unique in the `OrderedSet`'s collection. The `OrderedSet` is different to the [`Set`](set.md) data structure because its values are iterated over in insertion order.
 
 ---
 
