@@ -52,9 +52,8 @@ end
 
 function Set:remove(value)
 	if self:has(value) then
-		self.size -= 1
-
 		self._values[value] = nil
+		self.size -= 1
 
 		return true
 	end
