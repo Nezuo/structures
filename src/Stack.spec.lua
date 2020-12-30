@@ -1,18 +1,18 @@
 return function()
-    local Stack = require(script.Parent.Stack)
-    local typeOf = require(script.parent.typeOf)
+	local Stack = require(script.Parent.Stack)
+	local typeOf = require(script.parent.typeOf)
 
-    local stack
+	local stack
 
-    beforeEach(function()
-        stack = Stack()
+	beforeEach(function()
+		stack = Stack()
+	end)
+
+	it("should be correct type", function()
+		expect(typeOf(stack)).to.equal("Stack")
     end)
-    
-    it("should be correct type", function()
-        expect(typeOf(stack)).to.equal("Stack")
-    end)
 
-    it("should return correct string", function()
+	it("should return correct string", function()
         expect(tostring(stack)).to.equal("Stack {}")
 
         stack:push("a")
@@ -22,7 +22,7 @@ return function()
         expect(tostring(stack)).to.equal("Stack {\"a\", \"b\", \"c\"}")
     end)
 
-    it("should give correct size", function()
+	it("should give correct size", function()
         stack:push("a")
         stack:push("b")
         stack:push("c")
@@ -53,13 +53,13 @@ return function()
         expect(stack:isEmpty()).to.equal(true)
     end)
 
-    it("should not add nil", function()
+	it("should not add nil", function()
         stack:push(nil)
 
         expect(stack:isEmpty()).to.equal(true)
     end)
-    
-    it("should follow LIFO", function()
+
+	it("should follow LIFO", function()
         stack:push("a")
         stack:push("b")
         stack:push("c")
@@ -70,7 +70,7 @@ return function()
         expect(stack:pop()).never.to.be.ok()
     end)
 
-    it("should return last value or nil", function()
+	it("should return last value or nil", function()
         stack:push("a")
         stack:push("b")
         stack:push("c")
@@ -85,9 +85,9 @@ return function()
 
         stack:pop()
         expect(stack:peek()).never.to.be.ok()
-    end)
+	end)
 
-    it("should iterate through elements", function()
+	it("should iterate through elements", function()
         stack:push("a")
         stack:push("b")
         stack:push("c")
@@ -106,6 +106,6 @@ return function()
             return index == #elements
         end
 
-        expect(iteratedElementsInOrder({"a", "b", "c"})).to.equal(true)
-    end)
+        expect(iteratedElementsInOrder({ "a", "b", "c" })).to.equal(true)
+	end)
 end

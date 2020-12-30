@@ -6,54 +6,54 @@ Queue.__index = Queue
 Queue.__type = "Queue"
 
 local function createQueue()
-    local self = setmetatable({}, Queue)
-    
-    self._linkedList = LinkedList()
-    self.size = 0
+	local self = setmetatable({}, Queue)
 
-    return self
+	self._linkedList = LinkedList()
+	self.size = 0
+
+	return self
 end
 
 function Queue:__tostring()
-    local values = table.create(self.size)
-    for value in self._linkedList:values() do
-        table.insert(values, toString(value))
-    end
+	local values = table.create(self.size)
+	for value in self._linkedList:values() do
+		table.insert(values, toString(value))
+	end
 
-    return "Queue {" .. table.concat(values, ", ") .. "}"
+	return "Queue {" .. table.concat(values, ", ") .. "}"
 end
 
 function Queue:elements()
-    return self._linkedList:values()
+	return self._linkedList:values()
 end
 
 function Queue:enqueue(element)
-    if element ~= nil then
-        self._linkedList:append(element)
-        self.size += 1
-    end
+	if element ~= nil then
+		self._linkedList:append(element)
+		self.size += 1
+	end
 end
 
 function Queue:dequeue()
-    local removedValue = self._linkedList:removeHead()
+	local removedValue = self._linkedList:removeHead()
 
-    if removedValue ~= nil then
-        self.size -= 1
-    end
+	if removedValue ~= nil then
+		self.size -= 1
+	end
 
-    return removedValue
+	return removedValue
 end
 
 function Queue:isEmpty()
-    return self.size == 0
+	return self.size == 0
 end
 
 function Queue:peek()
-    local head = self._linkedList.head
+	local head = self._linkedList.head
 
-    if head ~= nil then
-        return head.value
-    end
+	if head ~= nil then
+		return head.value
+	end
 end
 
 return createQueue

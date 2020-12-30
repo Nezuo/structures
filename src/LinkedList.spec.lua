@@ -1,18 +1,18 @@
 return function()
-    local LinkedList = require(script.Parent.LinkedList)
-    local typeOf = require(script.parent.typeOf)
+	local LinkedList = require(script.Parent.LinkedList)
+	local typeOf = require(script.parent.typeOf)
 
-    local linkedList
+	local linkedList
 
-    beforeEach(function()
-        linkedList = LinkedList()
-    end)
+	beforeEach(function()
+		linkedList = LinkedList()
+	end)
 
-    it("should be correct type", function()
+	it("should be correct type", function()
         expect(typeOf(linkedList)).to.equal("LinkedList")
     end)
 
-    it("should return correct string", function()
+	it("should return correct string", function()
         expect(tostring(linkedList)).to.equal("LinkedList {}")
 
         linkedList:append("a")
@@ -22,7 +22,7 @@ return function()
         expect(tostring(linkedList)).to.equal("LinkedList {\"a\", \"b\", \"c\"}")
     end)
 
-    it("should give correct size", function()
+	it("should give correct size", function()
         linkedList:append("a")
         linkedList:append("b")
         linkedList:append("c")
@@ -53,7 +53,7 @@ return function()
         expect(linkedList:isEmpty()).to.equal(true)
     end)
 
-    it("should append values", function()
+	it("should append values", function()
         linkedList:append("a")
         expect(linkedList.tail.value).to.equal("a")
         linkedList:append("b")
@@ -62,7 +62,7 @@ return function()
         expect(linkedList.tail.value).to.equal("c")
     end)
 
-    it("should prepend values", function()
+	it("should prepend values", function()
         linkedList:prepend("a")
         expect(linkedList.head.value).to.equal("a")
         linkedList:prepend("b")
@@ -71,14 +71,14 @@ return function()
         expect(linkedList.head.value).to.equal("c")
     end)
 
-    it("should not add nil", function()
+	it("should not add nil", function()
         linkedList:prepend(nil)
         linkedList:append(nil)
 
         expect(linkedList:isEmpty()).to.equal(true)
     end)
 
-    it("should remove values", function()
+	it("should remove values", function()
         linkedList:append("a")
         linkedList:append("a")
         linkedList:append("a")
@@ -104,7 +104,7 @@ return function()
         expect(linkedList.tail.value).to.equal("b")
     end)
 
-    it("should remove tail", function()
+	it("should remove tail", function()
         linkedList:append("a")
         linkedList:append("b")
         linkedList:append("c")
@@ -124,7 +124,7 @@ return function()
         expect(linkedList:removeTail()).never.to.be.ok()
     end)
 
-    it("should remove head", function()
+	it("should remove head", function()
         linkedList:append("a")
         linkedList:append("b")
         linkedList:append("c")
@@ -144,7 +144,7 @@ return function()
         expect(linkedList:removeHead()).never.to.be.ok()
     end)
 
-    it("should have added values", function()
+	it("should have added values", function()
         expect(linkedList:has("a")).to.equal(false)
 
         linkedList:append("a")
@@ -161,17 +161,17 @@ return function()
         expect(linkedList:has("b")).to.equal(true)
     end)
 
-    it("should have head", function()
+	it("should have head", function()
         expect(linkedList:has(nil)).to.equal(false)
     end)
 
-    it("should have nil", function()
+	it("should have nil", function()
         linkedList:append("a")
 
         expect(linkedList:has(linkedList.head)).to.equal(true)
     end)
 
-    it("should iterate through values", function()
+	it("should iterate through values", function()
         linkedList:append("a")
         linkedList:append("b")
         linkedList:append("c")
@@ -190,6 +190,6 @@ return function()
             return index == #values
         end
 
-        expect(iteratedValuesInOrder({"a", "b", "c"})).to.equal(true)
+        expect(iteratedValuesInOrder({ "a", "b", "c" })).to.equal(true)
     end)
 end

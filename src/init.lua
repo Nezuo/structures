@@ -6,10 +6,10 @@ local Set = require(script.Set)
 local Stack = require(script.Stack)
 
 return {
-    DoublyLinkedList = DoublyLinkedList;
-    LinkedList = LinkedList;
-    Map = Map;
-    Queue = Queue;
-    Set = Set;
-    Stack = Stack;
+	DoublyLinkedList = DoublyLinkedList,
+	LinkedList = LinkedList,
+	Map = Map,
+	Queue = Queue,
+	Set = Set,
+	Stack = Stack,
 }

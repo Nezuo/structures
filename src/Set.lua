@@ -5,70 +5,70 @@ Set.__index = Set
 Set.__type = "Set"
 
 local function createSet(values)
-    local self = setmetatable({}, Set)
-    
-    self.size = 0
+	local self = setmetatable({}, Set)
 
-    self._values = {}
+	self.size = 0
 
-    if values ~= nil then
-        for _, value in ipairs(values) do
-            self:add(value)
-        end
-    end
+	self._values = {}
 
-    return self
+	if values ~= nil then
+		for _, value in ipairs(values) do
+			self:add(value)
+		end
+	end
+
+	return self
 end
 
 function Set:__tostring()
-    local values = table.create(self.size)
-    for value in self:values() do
-        table.insert(values, toString(value))
-    end
+	local values = table.create(self.size)
+	for value in self:values() do
+		table.insert(values, toString(value))
+	end
 
-    return "Set {" .. table.concat(values, ", ") .. "}"
+	return "Set {" .. table.concat(values, ", ") .. "}"
 end
 
 function Set:values()
-    local function iterate(state, control)
-        local value = next(state, control)
+	local function iterate(state, control)
+		local value = next(state, control)
 
-        return value
-    end
+		return value
+	end
 
-    return iterate, self._values
+	return iterate, self._values
 end
 
 function Set:add(value)
-    if value ~= nil and not self:has(value) then
-        self._values[value] = true
-        self.size += 1
+	if value ~= nil and not self:has(value) then
+		self._values[value] = true
+		self.size += 1
 
-        return true
-    end
+		return true
+	end
 
-    return false
+	return false
 end
 
 function Set:remove(value)
-    if self:has(value) then
-        self.size -= 1
+	if self:has(value) then
+		self.size -= 1
 
-        self._values[value] = nil
+		self._values[value] = nil
 
-        return true
-    end
+		return true
+	end
 
-    return false
+	return false
 end
 
 function Set:has(value)
-    return self._values[value] == true
+	return self._values[value] == true
 end
 
 function Set:clear()
-    self._values = {}
-    self.size = 0
+	self._values = {}
+	self.size = 0
 end
 
 return createSet

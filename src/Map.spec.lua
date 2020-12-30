@@ -1,37 +1,37 @@
 return function()
-    local Map = require(script.Parent.Map)
-    local typeOf = require(script.parent.typeOf)
+	local Map = require(script.Parent.Map)
+	local typeOf = require(script.parent.typeOf)
 
-    local map
+	local map
 
-    beforeEach(function()
-        map = Map()
-    end)
+	beforeEach(function()
+		map = Map()
+	end)
 
-    it("should be correct type", function()
+	it("should be correct type", function()
         expect(typeOf(map)).to.equal("Map")
     end)
 
-    it("should return correct string", function()
+	it("should return correct string", function()
         expect(tostring(map)).to.equal("Map {}")
 
         map:set(1, true)
         map:set("1", false)
         map:set("\"a\"", "b")
         map:set(true, "c")
-        
+
         expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [true] = \"c\", [\"\"a\"\"] = \"b\"}")
     end)
 
-    it("should have default values", function()
-        local myMap = Map {a = 1, b = 2, c = 3}
+	it("should have default values", function()
+        local myMap = Map({ a = 1, b = 2, c = 3 })
 
         expect(myMap:has("a")).to.equal(true)
         expect(myMap:has("b")).to.equal(true)
         expect(myMap:has("c")).to.equal(true)
     end)
 
-    it("should give correct size", function()
+	it("should give correct size", function()
         map:set("a", 1)
         map:set("b", 2)
         map:set("c", 3)
@@ -51,27 +51,27 @@ return function()
         expect(map.size).to.equal(0)
     end)
 
-    it("should give correct size when setting existing key", function()
+	it("should give correct size when setting existing key", function()
         map:set("a", false)
 
         expect(map.size).to.equal(1)
 
         map:set("a", true)
-        
+
         expect(map.size).to.equal(1)
     end)
 
-    it("should overwrite existing value", function()
+	it("should overwrite existing value", function()
         map:set("a", false)
 
         expect(map:get("a")).to.equal(false)
 
         map:set("a", true)
-        
+
         expect(map:get("a")).to.equal(true)
     end)
 
-    it("should remove value if present", function()
+	it("should remove value if present", function()
         expect(map:remove("a")).to.equal(false)
 
         map:set("a", true)
@@ -79,13 +79,13 @@ return function()
         expect(map:remove("a")).to.equal(true)
     end)
 
-    it("should throw when setting nil", function()
+	it("should throw when setting nil", function()
         expect(function()
             map:set(nil, true)
         end).to.throw("Map key cannot be nil.")
     end)
 
-    it("should have set keys", function()
+	it("should have set keys", function()
         expect(map:has("a")).to.equal(false)
 
         map:set("a", true)
@@ -105,7 +105,7 @@ return function()
         expect(map:has("a")).to.equal(false)
     end)
 
-    it("should iterate through entries", function()
+	it("should iterate through entries", function()
         map:set("a", 1)
         map:set("b", 2)
         map:set("c", 3)
@@ -113,7 +113,7 @@ return function()
         local function iteratedEntries(entries)
             for key, value in map:entries() do
                 local entryValue = entries[key]
-                
+
                 if entryValue ~= value then
                     return false
                 elseif entryValue ~= nil then
@@ -124,10 +124,10 @@ return function()
             return next(entries) == nil
         end
 
-        expect(iteratedEntries({a = 1, b = 2, c = 3})).to.equal(true)
+        expect(iteratedEntries({ a = 1, b = 2, c = 3 })).to.equal(true)
     end)
 
-    it("should iterate through keys", function()
+	it("should iterate through keys", function()
         map:set("a", 1)
         map:set("b", 2)
         map:set("c", 3)
@@ -146,10 +146,10 @@ return function()
             return #keys == 0
         end
 
-        expect(iteratedKeys({"a", "b", "c"})).to.equal(true)
+        expect(iteratedKeys({ "a", "b", "c" })).to.equal(true)
     end)
 
-    it("should iterate through values", function()
+	it("should iterate through values", function()
         map:set("a", 1)
         map:set("b", 2)
         map:set("c", 3)
@@ -168,6 +168,6 @@ return function()
             return #values == 0
         end
 
-        expect(iteratedValues({1, 2, 3})).to.equal(true)
+        expect(iteratedValues({ 1, 2, 3 })).to.equal(true)
     end)
 end

@@ -1,122 +1,122 @@
 return function()
-    local Set = require(script.Parent.Set)
-    local typeOf = require(script.parent.typeOf)
+	local Set = require(script.Parent.Set)
+	local typeOf = require(script.parent.typeOf)
 
-    local set
+	local set
 
-    beforeEach(function()
-        set = Set()
-    end)
-    
-    it("should be correct type", function()
-        expect(typeOf(set)).to.equal("Set")
-    end)
+	beforeEach(function()
+		set = Set()
+	end)
 
-    it("should return correct string", function()
-        expect(tostring(set)).to.equal("Set {}")
+	it("should be correct type", function()
+		expect(typeOf(set)).to.equal("Set")
+	end)
 
-        set:add(true)
-        set:add(false)
-        set:add("a")
+	it("should return correct string", function()
+		expect(tostring(set)).to.equal("Set {}")
 
-        expect(tostring(set)).to.equal("Set {false, true, \"a\"}")
-    end)
+		set:add(true)
+		set:add(false)
+		set:add("a")
 
-    it("should have default values", function()
-        local mySet = Set {"a", "b", "c"}
+		expect(tostring(set)).to.equal("Set {false, true, \"a\"}")
+	end)
 
-        expect(mySet:has("a")).to.equal(true)
-        expect(mySet:has("b")).to.equal(true)
-        expect(mySet:has("c")).to.equal(true)
-    end)
+	it("should have default values", function()
+		local mySet = Set({ "a", "b", "c" })
 
-    it("should give correct size", function()
-        set:add("a")
-        set:add("b")
-        set:add("c")
+		expect(mySet:has("a")).to.equal(true)
+		expect(mySet:has("b")).to.equal(true)
+		expect(mySet:has("c")).to.equal(true)
+	end)
 
-        expect(set.size).to.equal(3)
+	it("should give correct size", function()
+		set:add("a")
+		set:add("b")
+		set:add("c")
 
-        set:add("d")
+		expect(set.size).to.equal(3)
 
-        expect(set.size).to.equal(4)
+		set:add("d")
 
-        set:remove("d")
+		expect(set.size).to.equal(4)
 
-        expect(set.size).to.equal(3)
+		set:remove("d")
 
-        set:clear()
+		expect(set.size).to.equal(3)
 
-        expect(set.size).to.equal(0)
-    end)
+		set:clear()
 
-    it("should give correct size when adding existing value", function()
-        set:add("a")
+		expect(set.size).to.equal(0)
+	end)
 
-        expect(set.size).to.equal(1)
+	it("should give correct size when adding existing value", function()
+		set:add("a")
 
-        set:add("a")
-        
-        expect(set.size).to.equal(1)
-    end)
+		expect(set.size).to.equal(1)
 
-    it("should add value if not present", function()
-        expect(set:add("a")).to.equal(true)
-        expect(set:add("a")).to.equal(false)
-    end)
+		set:add("a")
 
-    it("should remove value if present", function()
-        expect(set:remove("a")).to.equal(false)
+		expect(set.size).to.equal(1)
+	end)
 
-        set:add("a")
+	it("should add value if not present", function()
+		expect(set:add("a")).to.equal(true)
+		expect(set:add("a")).to.equal(false)
+	end)
 
-        expect(set:remove("a")).to.equal(true)
-    end)
+	it("should remove value if present", function()
+		expect(set:remove("a")).to.equal(false)
 
-    it("should not add nil", function()
-        expect(set:add(nil)).to.equal(false)
-        expect(set:has(nil)).to.equal(false)
-    end)
+		set:add("a")
 
-    it("should have added values", function()
-        expect(set:has("a")).to.equal(false)
+		expect(set:remove("a")).to.equal(true)
+	end)
 
-        set:add("a")
+	it("should not add nil", function()
+		expect(set:add(nil)).to.equal(false)
+		expect(set:has(nil)).to.equal(false)
+	end)
 
-        expect(set:has("a")).to.equal(true)
+	it("should have added values", function()
+		expect(set:has("a")).to.equal(false)
 
-        set:remove("a")
+		set:add("a")
 
-        expect(set:has("a")).to.equal(false)
+		expect(set:has("a")).to.equal(true)
 
-        set:add("a")
+		set:remove("a")
 
-        expect(set:has("a")).to.equal(true)
+		expect(set:has("a")).to.equal(false)
 
-        set:clear()
+		set:add("a")
 
-        expect(set:has("a")).to.equal(false)
-    end)
+		expect(set:has("a")).to.equal(true)
 
-    it("should iterate through values", function()
-        set:add("a")
-        set:add("b")
-        set:add("c")
+		set:clear()
 
-        local function iteratedValues(values)
-            for value in set:values() do
-                local index = table.find(values, value)
+		expect(set:has("a")).to.equal(false)
+	end)
 
-                if index ~= nil then
-                    table.remove(values, index)
-                else
-                    return false
-                end
-            end
+	it("should iterate through values", function()
+		set:add("a")
+		set:add("b")
+		set:add("c")
 
-            return #values == 0
-        end
+		local function iteratedValues(values)
+			for value in set:values() do
+				local index = table.find(values, value)
 
-        expect(iteratedValues({"a", "b", "c"})).to.equal(true)
-    end)
+				if index ~= nil then
+					table.remove(values, index)
+				else
+					return false
+				end
+			end
+
+			return #values == 0
+		end
+
+		expect(iteratedValues({ "a", "b", "c" })).to.equal(true)
+	end)
 end

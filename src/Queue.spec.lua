@@ -1,18 +1,18 @@
 return function()
-    local Queue = require(script.Parent.Queue)
-    local typeOf = require(script.parent.typeOf)
+	local Queue = require(script.Parent.Queue)
+	local typeOf = require(script.parent.typeOf)
 
-    local queue
+	local queue
 
-    beforeEach(function()
-        queue = Queue()
-    end)
-    
-    it("should be correct type", function()
+	beforeEach(function()
+		queue = Queue()
+	end)
+
+	it("should be correct type", function()
         expect(typeOf(queue)).to.equal("Queue")
     end)
 
-    it("should return correct string", function()
+	it("should return correct string", function()
         expect(tostring(queue)).to.equal("Queue {}")
 
         queue:enqueue("a")
@@ -22,7 +22,7 @@ return function()
         expect(tostring(queue)).to.equal("Queue {\"a\", \"b\", \"c\"}")
     end)
 
-    it("should give correct size", function()
+	it("should give correct size", function()
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")
@@ -53,13 +53,13 @@ return function()
         expect(queue:isEmpty()).to.equal(true)
     end)
 
-    it("should not add nil", function()
+	it("should not add nil", function()
         queue:enqueue(nil)
 
         expect(queue:isEmpty()).to.equal(true)
     end)
-    
-    it("should follow FIFO", function()
+
+	it("should follow FIFO", function()
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")
@@ -70,7 +70,7 @@ return function()
         expect(queue:dequeue()).never.to.be.ok()
     end)
 
-    it("should return first value or nil", function()
+	it("should return first value or nil", function()
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")
@@ -84,7 +84,7 @@ return function()
         expect(queue:peek()).never.to.be.ok()
     end)
 
-    it("should iterate through elements", function()
+	it("should iterate through elements", function()
         queue:enqueue("a")
         queue:enqueue("b")
         queue:enqueue("c")
@@ -103,6 +103,6 @@ return function()
             return index == #elements
         end
 
-        expect(iteratedElementsInOrder({"a", "b", "c"})).to.equal(true)
+        expect(iteratedElementsInOrder({ "a", "b", "c" })).to.equal(true)
     end)
 end
