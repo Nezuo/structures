@@ -15,19 +15,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Install Roblox
-        uses: OrbitalOwen/roblox-win-installer-action@1.0
+        uses: OrbitalOwen/roblox-win-installer-action@1.1
         with:
           cookie: ${{ secrets.ROBLOSECURITY }}
           token: ${{ secrets.GITHUB_TOKEN }}
         timeout-minutes: 5
-      
+
       - uses: Roblox/setup-foreman@v1
         with:
           version: "^1.0.0"
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Build place
         run: rojo build -o structures.rbxlx
 
