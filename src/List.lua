@@ -96,7 +96,7 @@ function List:set(index, value)
 	self._values[index] = value
 
 	if index == self.size + 1 then
-		self.size += 1
+		self.size +=  1
 	end
 end
 
@@ -105,7 +105,7 @@ function List:remove(value)
 
 	if index ~= nil then
 		table.remove(self._values, index)
-		self.size -= 1
+		self.size -=  1
 
 		return true
 	end
