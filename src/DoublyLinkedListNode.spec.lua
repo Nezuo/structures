@@ -9,14 +9,14 @@ return function()
 	end)
 
 	it("should be correct type", function()
-        expect(typeOf(doublyLinkedListNode)).to.equal("DoublyLinkedListNode")
-    end)
+		expect(typeOf(doublyLinkedListNode)).to.equal("DoublyLinkedListNode")
+	end)
 
 	it("should return correct string", function()
-        expect(tostring(doublyLinkedListNode)).to.equal("nil")
+		expect(tostring(doublyLinkedListNode)).to.equal("nil")
 
-        doublyLinkedListNode.value = "value"
+		doublyLinkedListNode.value = "value"
 
-        expect(tostring(doublyLinkedListNode)).to.equal("value")
-    end)
+		expect(tostring(doublyLinkedListNode)).to.equal("value")
+	end)
 end

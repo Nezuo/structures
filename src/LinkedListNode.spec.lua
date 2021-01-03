@@ -9,14 +9,14 @@ return function()
 	end)
 
 	it("should be correct type", function()
-        expect(typeOf(linkedListNode)).to.equal("LinkedListNode")
-    end)
+		expect(typeOf(linkedListNode)).to.equal("LinkedListNode")
+	end)
 
 	it("should return correct string", function()
-        expect(tostring(linkedListNode)).to.equal("nil")
+		expect(tostring(linkedListNode)).to.equal("nil")
 
-        linkedListNode.value = "value"
+		linkedListNode.value = "value"
 
-        expect(tostring(linkedListNode)).to.equal("value")
-    end)
+		expect(tostring(linkedListNode)).to.equal("value")
+	end)
 end

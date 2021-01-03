@@ -8,7 +8,6 @@ local function createSet(values)
 	local self = setmetatable({}, Set)
 
 	self.size = 0
-
 	self._values = {}
 
 	if values ~= nil then

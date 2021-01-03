@@ -1,5 +1,5 @@
 # LinkedList
-A `LinkedList` is a linear colllection of nodes that point to the next node in the collection.
+A `LinkedList` is a linear collection of nodes that point to the next node in the collection.
 
 ---
 

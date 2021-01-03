@@ -1,19 +1,7 @@
 {
-    "name": "structures",
+    "name": "Structures",
     "tree": {
-        "$className": "DataModel",
-
-        "ReplicatedStorage": {
-            "Structures": {"$path": "src"}
-        },
-
-        "TestService": {
-            "$properties": {
-                "ExecuteWithStudioRun": true
-            },
-
-            "TestEZ": {"$path": "dependencies/testez/src"},
-            "runTests": {"$path": "test/runTests.server.lua"}
-        }
-    }
+        "$path": "src"
+    },
+    "globIgnorePaths": ["*.spec.lua"]
 }

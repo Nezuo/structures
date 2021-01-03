@@ -1,5 +1,5 @@
 # DoublyLinkedList
-A `DoublyLinkedList` is a linear colllection of nodes that point to the next and previous node in the collection.
+A `DoublyLinkedList` is a linear collection of nodes that point to the next and previous node in the collection.
 
 ---
 

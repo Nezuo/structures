@@ -31,8 +31,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build place
-        run: rojo build -o structures.rbxlx
+        run: rojo build test.project.json -o test.rbxlx
 
       - name: Run tests
-        run: run-in-roblox --place structures.rbxlx --script test/runTests.server.lua
+        run: run-in-roblox --place test.rbxlx --script test/runTests.server.lua
         timeout-minutes: 5

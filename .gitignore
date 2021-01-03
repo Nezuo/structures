@@ -1,15 +1,15 @@
-# Project place file
-/structures.rbxlx
-
-# Roblox std
-/roblox.toml
+# Roblox model and place files in the root
+/*.rbxm
+/*.rbxmx
+/*.rbxl
+/*.rbxlx
 
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
 
-# Build
-/build.rbxm
+# Roblox std
+/roblox.toml
 
 # Documentation site
 /site

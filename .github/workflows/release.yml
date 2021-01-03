@@ -43,6 +43,6 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload model
-        run: rojo upload build.project.json --cookie "$ROBLOSECURITY" --asset_id 6033045359
+        run: rojo upload default.project.json --cookie "$ROBLOSECURITY" --asset_id 6033045359
         env:
           ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}

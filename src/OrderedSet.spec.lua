@@ -106,19 +106,19 @@ return function()
 		orderedSet:remove("b")
 
 		local function iteratedValuesInOrder(values)
-            local index = 0
+			local index = 0
 
-            for value in orderedSet:values() do
-                index += 1
+			for value in orderedSet:values() do
+				index += 1
 
-                if values[index] ~= value then
-                    return false
-                end
-            end
+				if values[index] ~= value then
+					return false
+				end
+			end
 
-            return index == #values
-        end
+			return index == #values
+		end
 
-        expect(iteratedValuesInOrder({ "a", "c", "d" })).to.equal(true)
+		expect(iteratedValuesInOrder({ "a", "c", "d" })).to.equal(true)
 	end)
 end

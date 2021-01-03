@@ -7,6 +7,7 @@ nav:
   - Structures:
     - DoublyLinkedList: doublylinkedlist.md
     - LinkedList: linkedlist.md
+    - List: list.md
     - Map: map.md
     - OrderedMap: orderedmap.md
     - OrderedSet: orderedset.md

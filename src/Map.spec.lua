@@ -9,165 +9,165 @@ return function()
 	end)
 
 	it("should be correct type", function()
-        expect(typeOf(map)).to.equal("Map")
-    end)
+		expect(typeOf(map)).to.equal("Map")
+	end)
 
 	it("should return correct string", function()
-        expect(tostring(map)).to.equal("Map {}")
+		expect(tostring(map)).to.equal("Map {}")
 
-        map:set(1, true)
-        map:set("1", false)
-        map:set("\"a\"", "b")
-        map:set(true, "c")
+		map:set(1, true)
+		map:set("1", false)
+		map:set("\"a\"", "b")
+		map:set(true, "c")
 
-        expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [true] = \"c\", [\"\"a\"\"] = \"b\"}")
-    end)
+		expect(tostring(map)).to.equal("Map {[1] = true, [\"1\"] = false, [true] = \"c\", [\"\"a\"\"] = \"b\"}")
+	end)
 
 	it("should have default values", function()
-        local myMap = Map({ a = 1, b = 2, c = 3 })
+		local myMap = Map({ a = 1, b = 2, c = 3 })
 
-        expect(myMap:has("a")).to.equal(true)
-        expect(myMap:has("b")).to.equal(true)
-        expect(myMap:has("c")).to.equal(true)
-    end)
+		expect(myMap:has("a")).to.equal(true)
+		expect(myMap:has("b")).to.equal(true)
+		expect(myMap:has("c")).to.equal(true)
+	end)
 
 	it("should give correct size", function()
-        map:set("a", 1)
-        map:set("b", 2)
-        map:set("c", 3)
+		map:set("a", 1)
+		map:set("b", 2)
+		map:set("c", 3)
 
-        expect(map.size).to.equal(3)
+		expect(map.size).to.equal(3)
 
-        map:set("d", 4)
+		map:set("d", 4)
 
-        expect(map.size).to.equal(4)
+		expect(map.size).to.equal(4)
 
-        map:remove("d")
+		map:remove("d")
 
-        expect(map.size).to.equal(3)
+		expect(map.size).to.equal(3)
 
-        map:clear()
+		map:clear()
 
-        expect(map.size).to.equal(0)
-    end)
+		expect(map.size).to.equal(0)
+	end)
 
 	it("should give correct size when setting existing key", function()
-        map:set("a", false)
+		map:set("a", false)
 
-        expect(map.size).to.equal(1)
+		expect(map.size).to.equal(1)
 
-        map:set("a", true)
+		map:set("a", true)
 
-        expect(map.size).to.equal(1)
-    end)
+		expect(map.size).to.equal(1)
+	end)
 
 	it("should overwrite existing value", function()
-        map:set("a", false)
+		map:set("a", false)
 
-        expect(map:get("a")).to.equal(false)
+		expect(map:get("a")).to.equal(false)
 
-        map:set("a", true)
+		map:set("a", true)
 
-        expect(map:get("a")).to.equal(true)
-    end)
+		expect(map:get("a")).to.equal(true)
+	end)
 
 	it("should remove value if present", function()
-        expect(map:remove("a")).to.equal(false)
+		expect(map:remove("a")).to.equal(false)
 
-        map:set("a", true)
+		map:set("a", true)
 
-        expect(map:remove("a")).to.equal(true)
-    end)
+		expect(map:remove("a")).to.equal(true)
+	end)
 
 	it("should throw when setting nil", function()
-        expect(function()
-            map:set(nil, true)
-        end).to.throw("Map key cannot be nil.")
-    end)
+		expect(function()
+			map:set(nil, true)
+		end).to.throw("Map key cannot be nil.")
+	end)
 
 	it("should have set keys", function()
-        expect(map:has("a")).to.equal(false)
+		expect(map:has("a")).to.equal(false)
 
-        map:set("a", true)
+		map:set("a", true)
 
-        expect(map:has("a")).to.equal(true)
+		expect(map:has("a")).to.equal(true)
 
-        map:remove("a")
+		map:remove("a")
 
-        expect(map:has("a")).to.equal(false)
+		expect(map:has("a")).to.equal(false)
 
-        map:set("a", true)
+		map:set("a", true)
 
-        expect(map:has("a")).to.equal(true)
+		expect(map:has("a")).to.equal(true)
 
-        map:clear()
+		map:clear()
 
-        expect(map:has("a")).to.equal(false)
-    end)
+		expect(map:has("a")).to.equal(false)
+	end)
 
 	it("should iterate through entries", function()
-        map:set("a", 1)
-        map:set("b", 2)
-        map:set("c", 3)
+		map:set("a", 1)
+		map:set("b", 2)
+		map:set("c", 3)
 
-        local function iteratedEntries(entries)
-            for key, value in map:entries() do
-                local entryValue = entries[key]
+		local function iteratedEntries(entries)
+			for key, value in map:entries() do
+				local entryValue = entries[key]
 
-                if entryValue ~= value then
-                    return false
-                elseif entryValue ~= nil then
-                    entries[key] = nil
-                end
-            end
+				if entryValue ~= value then
+					return false
+				elseif entryValue ~= nil then
+					entries[key] = nil
+				end
+			end
 
-            return next(entries) == nil
-        end
+			return next(entries) == nil
+		end
 
-        expect(iteratedEntries({ a = 1, b = 2, c = 3 })).to.equal(true)
-    end)
+		expect(iteratedEntries({ a = 1, b = 2, c = 3 })).to.equal(true)
+	end)
 
 	it("should iterate through keys", function()
-        map:set("a", 1)
-        map:set("b", 2)
-        map:set("c", 3)
+		map:set("a", 1)
+		map:set("b", 2)
+		map:set("c", 3)
 
-        local function iteratedKeys(keys)
-            for key in map:keys() do
-                local index = table.find(keys, key)
+		local function iteratedKeys(keys)
+			for key in map:keys() do
+				local index = table.find(keys, key)
 
-                if index ~= nil then
-                    table.remove(keys, index)
-                else
-                    return false
-                end
-            end
+				if index ~= nil then
+					table.remove(keys, index)
+				else
+					return false
+				end
+			end
 
-            return #keys == 0
-        end
+			return #keys == 0
+		end
 
-        expect(iteratedKeys({ "a", "b", "c" })).to.equal(true)
-    end)
+		expect(iteratedKeys({ "a", "b", "c" })).to.equal(true)
+	end)
 
 	it("should iterate through values", function()
-        map:set("a", 1)
-        map:set("b", 2)
-        map:set("c", 3)
+		map:set("a", 1)
+		map:set("b", 2)
+		map:set("c", 3)
 
-        local function iteratedValues(values)
-            for value in map:values() do
-                local index = table.find(values, value)
+		local function iteratedValues(values)
+			for value in map:values() do
+				local index = table.find(values, value)
 
-                if index ~= nil then
-                    table.remove(values, index)
-                else
-                    return false
-                end
-            end
+				if index ~= nil then
+					table.remove(values, index)
+				else
+					return false
+				end
+			end
 
-            return #values == 0
-        end
+			return #values == 0
+		end
 
-        expect(iteratedValues({ 1, 2, 3 })).to.equal(true)
-    end)
+		expect(iteratedValues({ 1, 2, 3 })).to.equal(true)
+	end)
 end

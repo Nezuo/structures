@@ -1,0 +1,27 @@
+{
+    "name": "structures-test",
+    "tree": {
+        "$className": "DataModel",
+
+        "ReplicatedStorage": {
+            "Structures": {
+                "$path": "src"
+            },
+            "TestEZ": {
+                "$path": "dependencies/testez/src"
+            }
+        },
+
+        "ServerScriptService": {
+            "runTests": {
+                "$path": "test/runTests.server.lua"
+            }
+        },
+
+        "Players": {
+            "$properties": {
+                "CharacterAutoLoads": false
+            }
+        }
+    }
+}
